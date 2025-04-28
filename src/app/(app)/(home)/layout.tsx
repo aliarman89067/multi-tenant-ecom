@@ -5,6 +5,7 @@ import { Footer } from './footer'
 import { SearchFilters } from './search-filters'
 import { getPayload } from 'payload'
 import configPayload from '@payload-config'
+import { CustomCategory } from './types'
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const payload = await getPayload({
@@ -15,13 +16,14 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
     // We add depth 1 for populate subcategories
     depth: 1,
     pagination: false,
+    sort: 'name',
     where: {
       parent: {
         exists: false,
       },
     },
   })
-  const formattedData = data.docs.map((doc) => ({
+  const formattedData: CustomCategory[] = data.docs.map((doc) => ({
     ...doc,
     subcategories: (doc.subcategories?.docs ?? []).map((doc) => ({
       // As we added depth 1. We know that doc will type category
