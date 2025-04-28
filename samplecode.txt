@@ -1,0 +1,6 @@
+# Added by Payload
+DATABASE_URI=mongodb+srv://aliarman:aliarman@cluster0.toqgs1b.mongodb.net/multi-tenant-ecom
+PAYLOAD_SECRET=e3cc42a4a8f18a5388e445c9
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+CRON_SECRET=YOUR_CRON_SECRET_HERE
+PREVIEW_SECRET=YOUR_SECRET_HERE
