@@ -1,15 +1,14 @@
 'use client'
-import { Category } from '@/payload-types'
 import { CategoryDropdown } from './category-dropdown'
-import { CustomCategory } from '../types'
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ListFilterIcon } from 'lucide-react'
 import { CategoriesSidebar } from './categories-sidebar'
+import { CategoriesGetMenyOutputs } from '@/modules/categories/types'
 
 interface CategoriesProps {
-  data: CustomCategory[]
+  data: CategoriesGetMenyOutputs
 }
 
 export const Categories = ({ data }: CategoriesProps) => {
@@ -51,14 +50,14 @@ export const Categories = ({ data }: CategoriesProps) => {
 
   return (
     <div className="relative w-full">
-      <CategoriesSidebar open={isSidebarOpen} onOpenChange={setIsSidebarOpen} data={data} />
+      <CategoriesSidebar open={isSidebarOpen} onOpenChange={setIsSidebarOpen} />
       {/* Hidden div to measure all item */}
       <div
         ref={measureRef}
         className="absolute opacity-0 pointer-events-none flex"
         style={{ position: 'fixed', top: -9999, left: -9999 }}
       >
-        {data.map((category: CustomCategory) => (
+        {data.map((category: CategoriesGetMenyOutputs[0]) => (
           <div key={category.id}>
             <CategoryDropdown
               category={category}
@@ -76,7 +75,7 @@ export const Categories = ({ data }: CategoriesProps) => {
         onMouseLeave={() => setIsAnyHovered(false)}
         className="flex flex-nowrap items-center"
       >
-        {data.slice(0, visibleCount).map((category: CustomCategory) => (
+        {data.slice(0, visibleCount).map((category: CategoriesGetMenyOutputs[0]) => (
           <div key={category.id}>
             <CategoryDropdown
               category={category}
