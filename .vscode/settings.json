@@ -30,11 +30,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+
   "editor.formatOnSaveMode": "file",
   "typescript.tsdk": "node_modules/typescript/lib",
   "[javascript][typescript][typescriptreact]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
-  }
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

@@ -1,7 +1,7 @@
-import React from 'react'
+'use client'
 
 const Home = () => {
-  return <div className="flex flex-col gap-4 p-4">Home Page</div>
+  return <div>Home</div>
 }
 
 export default Home
